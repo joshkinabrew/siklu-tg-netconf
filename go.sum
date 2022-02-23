@@ -3,6 +3,8 @@ github.com/Juniper/go-netconf v0.1.1/go.mod h1:2Fy6tQTWnL//D/Ll1hb0RYXN4jndcTyne
 github.com/Juniper/go-netconf v0.1.2-0.20210226165350-bb51e84ff02b h1:eZEDTAhVH3vd2wKqaUzeu+dXgZSyNqi2wp7vX7n65kQ=
 github.com/Juniper/go-netconf v0.1.2-0.20210226165350-bb51e84ff02b/go.mod h1:QhfUOux77kzKAdY1+DOpQswtzp7LeeooYTn2MT7iXkY=
 github.com/google/go-cmp v0.5.1/go.mod h1:v8dTdLbMG2kIc/vJvl+f65V22dbkXbowE6jgT/gNBxE=
+github.com/kotakanbe/go-pingscanner v0.1.0 h1:VG4/9l0i8WeToXclj7bIGoAZAu7a07Z3qmQiIfU0gT0=
+github.com/kotakanbe/go-pingscanner v0.1.0/go.mod h1:/761QZzuZFcfN8h/1QuawUA+pKukp3qcNj5mxJCOiAk=
 github.com/ziutek/telnet v0.0.0-20180329124119-c3b780dc415b h1:VfPXB/wCGGt590QhD1bOpv2J/AmC/RJNTg/Q59HKSB0=
 github.com/ziutek/telnet v0.0.0-20180329124119-c3b780dc415b/go.mod h1:IZpXDfkJ6tWD3PhBK5YzgQT+xJWh7OsdwiG8hA2MkO4=
 golang.org/x/crypto v0.0.0-20190308221718-c2843e01d9a2/go.mod h1:djNgcEr1/C05ACkg1iLfiJU5Ep61QUkGW8qpdssI0+w=

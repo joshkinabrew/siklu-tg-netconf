@@ -4,6 +4,7 @@ go 1.17
 
 require (
 	github.com/Juniper/go-netconf v0.1.2-0.20210226165350-bb51e84ff02b
+	github.com/kotakanbe/go-pingscanner v0.1.0
 	golang.org/x/crypto v0.0.0-20220213190939-1e6e3497d506
 )
 

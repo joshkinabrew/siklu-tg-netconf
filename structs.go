@@ -17,8 +17,8 @@ type Counters struct {
 type RadioProfile struct {
 	Polarity     string `xml:"polarity" json:"polarity"`
 	Frequency    string `xml:"frequency" json:"frequency"`
-	TxGolayIndex int64  `xml:"tx-golay-index" json:"tx_golay_index"`
-	RxGolayIndex int64  `xml:"rx-golay-index" json:"rx_golay_index"`
+	TxGolayIndex string `xml:"tx-golay-index" json:"tx_golay_index"`
+	RxGolayIndex string `xml:"rx-golay-index" json:"rx_golay_index"`
 }
 
 type Data struct {
@@ -85,8 +85,8 @@ type Data struct {
 		IPv4 struct {
 			Address []struct {
 				IP           net.IP `xml:"ip" json:"ip"`
-				PrefixLength int    `xml:"prefix-length" json:"prefix_length"`
-				CVlan        int    `xml:"c-vlan" json:"c_vlan"`
+				PrefixLength uint8  `xml:"prefix-length" json:"prefix_length"`
+				CVlan        uint16 `xml:"c-vlan" json:"c_vlan"`
 			} `xml:"address" json:"address"`
 			DefaultGateway string `xml:"default-gateway" json:"default_gateway"`
 		} `xml:"ipv4" json:"ipv4"`
@@ -177,7 +177,7 @@ type Data struct {
 		} `xml:"node-config" json:"node_config"`
 		SectorsConfig struct {
 			Sector []struct {
-				Index        int          `xml:"index" json:"index"`
+				Index        uint8        `xml:"index" json:"index"`
 				RadioProfile RadioProfile `xml:"radio-profile" json:"radio_profile`
 			} `xml:"sector" json:"sector"`
 		} `xml:"sectors-config" json:"sectors_config"`
