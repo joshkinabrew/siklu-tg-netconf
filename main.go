@@ -53,12 +53,12 @@ func main() {
 	connectToWebsocketServer()
 
 	for {
-		<-time.After(time.Duration(refreshRate) * time.Second)
-
 		err := scanAndSend()
 		if err != nil {
 			debugLog(err)
 		}
+
+		<-time.After(time.Duration(refreshRate) * time.Second)
 	}
 }
 
