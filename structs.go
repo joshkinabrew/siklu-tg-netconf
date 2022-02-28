@@ -84,7 +84,7 @@ type Data struct {
 	IP struct {
 		IPv4 struct {
 			Address []struct {
-				IP           net.IP `xml:"ip" json:"ip"`
+				IP           string `xml:"ip" json:"ip"`
 				PrefixLength uint8  `xml:"prefix-length" json:"prefix_length"`
 				CVlan        uint16 `xml:"c-vlan" json:"c_vlan"`
 			} `xml:"address" json:"address"`
@@ -126,7 +126,7 @@ type Data struct {
 			} `xml:"sector" json:"sector"`
 		} `xml:"sectors-config" json:"sectors-config"`
 		Links struct {
-			Active struct {
+			Active []struct {
 				RemoteAssignedName      string `xml:"remote-assigned-name" json:"remote_assigned_name"`
 				ActualRemoteSectorIndex string `xml:"actual-remote-sector-index" json:"actual_remote_sector_index"`
 				ActualLocalSectorIndex  string `xml:"actual-local-sector-index" json:"actual_local_sector_index"`
