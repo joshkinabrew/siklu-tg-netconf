@@ -58,7 +58,6 @@ func main() {
 		err := scanAndSend()
 		if err != nil {
 			debugLog(err)
-			continue
 		}
 	}
 }
@@ -81,6 +80,7 @@ func scanAndSend() error {
 		if len(aliveIPs) < 1 {
 			fmt.Println("No alive hosts")
 		}
+		debugLog("Found", len(aliveIPs), "hosts")
 		for _, ip := range aliveIPs {
 			if contains(excludedIPs, ip) {
 				continue
@@ -88,7 +88,8 @@ func scanAndSend() error {
 
 			d, err := getNetconfDataForHost(ip + netconfPort)
 			if err != nil {
-				return err
+				debugLog(err)
+				continue
 			} else {
 				go sendDataToWebsocketServer(d)
 			}
@@ -116,7 +117,7 @@ func getAndParseFlags() {
 }
 
 func getNetconfDataForHost(host string) (Data, error) {
-	fmt.Println("Trying", host)
+	debugLog("Trying", host)
 	var returnData Data
 	sshConfig := &ssh.ClientConfig{
 		User:            username,
@@ -128,7 +129,7 @@ func getNetconfDataForHost(host string) (Data, error) {
 	session, err := netconf.DialSSH(host, sshConfig)
 
 	if err != nil {
-		return returnData, err
+		return returnData, fmt.Errorf("%s - %s", host, err)
 	}
 	defer session.Close()
 
