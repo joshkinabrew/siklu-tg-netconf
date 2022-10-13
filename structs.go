@@ -53,7 +53,7 @@ type Data struct {
 				ActualPortSpeed  string   `xml:"actual-port-speed" json:"actual_port_speed"`
 			} `xml:"state" json:"state"`
 		} `xml:"ports" json:"ports"`
-		RfInterface struct {
+		RfInterfaces []struct {
 			Name  string `xml:"name" json:"name"`
 			State struct {
 				OperStatus string   `xml:"oper-status" json:"oper_status"`
@@ -173,16 +173,16 @@ type Data struct {
 		NodeConfig struct {
 			DefaultRadioProfile RadioProfile `xml:"default-radio-profile" json:"default_radio_profile"`
 			IsPopDn             bool         `xml:"is-pop-dn" json:"is_pop_dn"`
-			IgnoreGps           string       `xml:"ignore-gps" json:"ignore_gps"`
+			SyncMode            string       `xml:"sync-mode" json:"sync_mode"`
 		} `xml:"node-config" json:"node_config"`
 		SectorsConfig struct {
 			Sector []struct {
 				Index        uint8        `xml:"index" json:"index"`
-				RadioProfile RadioProfile `xml:"radio-profile" json:"radio_profile`
+				RadioProfile RadioProfile `xml:"radio-profile" json:"radio_profile"`
 			} `xml:"sector" json:"sector"`
 		} `xml:"sectors-config" json:"sectors_config"`
 		Links struct {
-			Configured struct {
+			Configured []struct {
 				RemoteAssignedName string `xml:"remote-assigned-name" json:"remote_assigned_name"`
 				RemoteSector       struct {
 					Index string `xml:"index" json:"index"`
@@ -200,9 +200,8 @@ type Data struct {
 
 	System struct {
 		Name         string `xml:"name" json:"name"`
-		RebootNeeded struct {
-		} `xml:"reboot-needed" json:"reboot_needed"` // TODO
-		Control struct {
+		RebootNeeded bool   `xml:"reboot-needed" json:"reboot_needed"`
+		Control      struct {
 			SoftWatchdogEnabled string `xml:"soft-watchdog-enabled" json:"soft_watchdog_enabled"`
 		} `xml:"control"`
 		State struct {
